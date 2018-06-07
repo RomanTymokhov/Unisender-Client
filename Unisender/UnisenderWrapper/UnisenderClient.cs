@@ -84,9 +84,9 @@ namespace UnisenderWrapper
                     {
                         var hash = pair.Value as IDictionary<string, object>;
                         var value = "";
-                        foreach (var sub_pair in hash)
+                        foreach (var subPair in hash)
                         {
-                            value += string.Format("{0}[{1}]={2}&", pair.Key, sub_pair.Key, HttpUtility.UrlEncode(sub_pair.Value.ToString()));
+                            value += string.Format("{0}[{1}]={2}&", pair.Key, subPair.Key, HttpUtility.UrlEncode(subPair.Value.ToString()));
                         }
                         if (value.Length > 0)
                             querry.Append(value);
