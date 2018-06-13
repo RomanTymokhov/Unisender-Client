@@ -45,6 +45,7 @@
     <Compile Include="UnisenderClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnisenderData\MailingList.cs" />
+    <Compile Include="UnisenderMethods\ListMethods.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
