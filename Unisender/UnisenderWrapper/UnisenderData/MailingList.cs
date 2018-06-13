@@ -20,25 +20,41 @@ namespace UnisenderWrapper.UnisenderData
         private const string beforeUrl = "before_subscribe_url";
         private const string afterUrl = "after_subscribe_url";
         private const string title = "title";
+        private const string listId = "list_id";
         private const string id = "id";
 
+        //консруктор по умолчанию
+        public Mailing(){}
+
         //конструктор для создания рассылки
-        public Mailing(string mName, string bsu, string asu)
+        public Mailing(string listTitle, string bsu, string asu)
         {
             mailingTitle = title;
             beforeSubscribeUrl = bsu;
             afterSubscribeUrl = asu;
 
-            CreateSendParam(mName);
+            CreateSendParam(listTitle);
         }
 
-        private void CreateSendParam(string mName)
+        private void CreateSendParam(string listTitle)
         {
             SendParam = new Dictionary<string, object>();
 
-            SendParam.Add(title, mName);
+            SendParam.Add(title, listTitle);
             SendParam.Add(beforeUrl, beforeSubscribeUrl);
             SendParam.Add(afterUrl, afterSubscribeUrl);
+        }
+
+        public void UpdateParam(int lId, string listTitle, string bUrl, string aUrl )
+        {
+            if (SendParam == null) SendParam = new Dictionary<string, object>();
+            else SendParam = null;
+
+            SendParam.Add(listId, lId);
+            SendParam.Add(title, listTitle);
+            SendParam.Add(beforeUrl, bUrl);
+            SendParam.Add(afterUrl, aUrl);
+
         }
 
         //конструктор для извлечения рассылки
