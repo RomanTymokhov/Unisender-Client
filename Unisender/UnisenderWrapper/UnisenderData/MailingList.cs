@@ -63,5 +63,23 @@ namespace UnisenderWrapper.UnisenderData
                 }
             }
         }
+
+        public override string ToString()
+        {
+            string rstr = null;
+
+            for (int i = 0; i < Mailings.Count; i++)
+            {
+                rstr += Mailings.ElementAtOrDefault(i).Id.ToString() + GetComa(i, Mailings.Count);
+            }
+
+            return rstr;
+        }
+
+        private string GetComa(int itr, int count)
+        {
+            if (itr <= count - 1) return ",";
+            else return null;
+        }
     }
 }
