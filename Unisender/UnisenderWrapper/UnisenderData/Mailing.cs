@@ -14,12 +14,12 @@ namespace UnisenderWrapper.UnisenderData
 
         private string beforeSubscribeUrl;
         private string afterSubscribeUrl;
-        
+
         private const string title = "title";
         private const string id = "id";
 
         //консруктор по умолчанию
-        public Mailing(){}
+        public Mailing() { }
 
         //конструктор для создания рассылки
         public Mailing(string listTitle, string bsu, string asu)
@@ -37,49 +37,6 @@ namespace UnisenderWrapper.UnisenderData
                 if (item.Key == id) Id = item.Value;
                 if (item.Key == title) Title = item.Value;
             }
-        }
-    }
-
-
-    //Список рассылок
-    public class MailingList
-    {
-        public List<Mailing> Mailings;
-
-        public MailingList(dynamic pairs)
-        {
-            Mailings = new List<Mailing>();
-            FillList(pairs);
-        }
-
-        private void FillList(dynamic pairs)
-        {
-            foreach (var result in pairs)
-            {
-                foreach (var item in result.Value)
-                {
-                    Mailing mailing = new Mailing(item);
-                    Mailings.Add(mailing);
-                }
-            }
-        }
-
-        public override string ToString()
-        {
-            string rstr = null;
-
-            for (int i = 0; i < Mailings.Count; i++)
-            {
-                rstr += Mailings.ElementAtOrDefault(i).Id.ToString() + GetComa(i, Mailings.Count);
-            }
-
-            return rstr;
-        }
-
-        private string GetComa(int itr, int count)
-        {
-            if (itr <= count - 1) return ",";
-            else return null;
         }
     }
 }
