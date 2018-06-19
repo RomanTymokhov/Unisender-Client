@@ -15,7 +15,7 @@ namespace UnisenderWrapper.UnisenderMethods
             var answer = client.getLists();
             // todo check error in answer
 
-            MailingList mailingList = new MailingList(answer);
+            SubscribesList mailingList = new SubscribesList(answer);
 
             return mailingList.Mailings;
         }
