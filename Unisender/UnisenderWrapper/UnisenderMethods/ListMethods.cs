@@ -111,8 +111,6 @@ namespace UnisenderWrapper.UnisenderMethods
                 ["overwrite"] = oWrite
             };
 
-            //TO DO: сделать возвращающий тип Person
-
             return client.subscribe(sendParam);
         }
 
