@@ -10,6 +10,8 @@ namespace UnisenderWrapper.UnisenderData.AppData
     {
         public static string ToAdresStr(this List<Mailing> list)
         {
+            // возвращает строку в виде элементов списка перечисленных через запятую
+
             string rstr = null;
 
             for (int i = 0; i < list.Count; i++)
