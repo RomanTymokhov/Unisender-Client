@@ -44,7 +44,16 @@
   <ItemGroup>
     <Compile Include="UnisenderClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnisenderData\MailingList.cs" />
+    <Compile Include="UnisenderData\AppData\ListExtansion.cs" />
+    <Compile Include="UnisenderData\Mailing.cs" />
+    <Compile Include="UnisenderData\MailBody.cs" />
+    <Compile Include="UnisenderData\ServiceData\ContactType.cs" />
+    <Compile Include="UnisenderData\ServiceData\IServiceStatus.cs" />
+    <Compile Include="UnisenderData\MailingOptions.cs" />
+    <Compile Include="UnisenderData\ServiceData\Overwrite.cs" />
+    <Compile Include="UnisenderData\ServiceData\UnsubscribeType.cs" />
+    <Compile Include="UnisenderData\SubscribesList.cs" />
+    <Compile Include="UnisenderData\ServiceData\DoubleOption.cs" />
     <Compile Include="UnisenderMethods\ListMethods.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
