@@ -70,18 +70,34 @@ namespace UnisenderWrapper.UnisenderMethods
         }
 
 
+        public static void UpdateMalingOptions (dynamic client, string senderName, string senderEmail, string subject, string body, int listId)
+        {
+            IDictionary<string, object> sendParam = new Dictionary<string, object>
+            {
+                ["sender_name"] = senderName,
+                ["sender_email"] = senderEmail,
+                ["subject"] = subject,
+                ["body"] = body,
+                ["list_id"] = listId
+            };
+
+            var answer = client.updateOptInEmail(sendParam);
+        }
+
         public static dynamic Subscribe(dynamic client, List<Mailing>subscribesList, Dictionary<string, object> keyValues, string tags, int dOpt, int oWrite)
         {
+            /// Example -> DoubleOption.Four, Overwrite.Zero
             /// double_optin 
             /// 0 - подписчик только высказал желание подписаться, но ещё не подтвердил подписку
             /// 3 - согласие подписчика уже есть, подписчик добавляется со статусом «новый».
             /// 4 - система выполняет проверку на наличие подписчика в ваших списках. Если подписчик уже есть в ваших списках со статусом «новый» или «активен»
+            /// адрес будет добавлен в указанный список, если подписчик отсутствует в списках или его статус отличен от «новый» или «активен», то ему будет отправлено письмо-приглашение.
             /// owerwrite
             /// 0 — происходит только добавление новых полей и меток, уже существующие поля сохраняют своё значение
             /// 1 — все старые поля удаляются и заменяются новыми, все старые метки также удаляются и заменяются новыми
             /// 2 — заменяются значения переданных полей, если у существующего подписчика есть и другие поля, то они сохраняют своё значение. 
             /// В случае передачи меток они перезаписываются, если же метки не передаются, то сохраняются старые значения меток
-           
+
             IDictionary<string, object> sendParam = new Dictionary<string, object>
             {
                 ["list_ids"] = subscribesList.ToAdresStr(),
