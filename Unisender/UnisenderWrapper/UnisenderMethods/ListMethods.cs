@@ -10,6 +10,9 @@ namespace UnisenderWrapper.UnisenderMethods
 {
     public static class ListMethods
     {
+        // в первых двух методах сделать возвращающиими тип dynamic
+        // а классы вынести на уровень абстракции выше (в сервис WCF) в котором и обрабатівать полученные с юнисендера ответы
+        // в след. двух также сделать.
         public static List<Mailing> GetLists(dynamic client)
         {
             var answer = client.getLists();
@@ -70,7 +73,7 @@ namespace UnisenderWrapper.UnisenderMethods
         }
 
 
-        public static void UpdateMalingOptions (dynamic client, string senderName, string senderEmail, string subject, string body, int listId)
+        public static dynamic UpdateMalingOptions (dynamic client, string senderName, string senderEmail, string subject, string body, int listId)
         {
             IDictionary<string, object> sendParam = new Dictionary<string, object>
             {
@@ -82,6 +85,7 @@ namespace UnisenderWrapper.UnisenderMethods
             };
 
             var answer = client.updateOptInEmail(sendParam);
+            return answer;
         }
 
         public static dynamic Subscribe(dynamic client, List<Mailing>subscribesList, Dictionary<string, object> keyValues, string tags, int dOpt, int oWrite)
@@ -110,6 +114,20 @@ namespace UnisenderWrapper.UnisenderMethods
             //TO DO: сделать возвращающий тип Person
 
             return client.subscribe(sendParam);
+        }
+
+        public static dynamic Unsubscribe (dynamic client, string unsOption, string contactType, string contact, string listId)
+        {
+            // вынес методы exclude() и unsubscribe() в один класс и с помощью unsOption выбираю тип отписки
+            IDictionary<string, object> sendParam = new Dictionary<string, object>
+            {
+                ["contact_type"] = contactType,
+                ["contact"] = contact,
+                ["list_ids"] = listId
+            };
+
+            if (unsOption == "exclude") return client.exclude(sendParam);
+            else return client.unsubscribe(sendParam);
         }
     }
 }
