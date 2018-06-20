@@ -28,5 +28,7 @@ namespace UnisenderWrapper.UnisenderData.ServiceData
                 return cType.phone;
             }
         }
+
+        private ContactType() { }
     }
 }
