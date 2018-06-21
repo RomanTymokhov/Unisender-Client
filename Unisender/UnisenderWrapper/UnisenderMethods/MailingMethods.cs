@@ -8,7 +8,7 @@ using UnisenderWrapper.UnisenderData.AppData;
 
 namespace UnisenderWrapper.UnisenderMethods
 {
-    public static class ListMethods
+    public static class MailingMethods
     {
         // в первых двух методах сделать возвращающиими тип dynamic
         // а классы вынести на уровень абстракции выше (в сервис WCF) в котором и обрабатівать полученные с юнисендера ответы
