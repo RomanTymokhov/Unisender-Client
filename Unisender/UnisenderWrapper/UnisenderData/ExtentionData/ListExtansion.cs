@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UnisenderWrapper.UnisenderData.AppData
+namespace UnisenderWrapper.UnisenderData.ExtentionData
 {
     public static class ListExtansion
     {
-        public static string ToAdresStr(this List<Mailing> list)
+        public static string SeparatedComa(this List<Mailing> list)
         {
             // возвращает строку в виде элементов списка перечисленных через запятую
 

@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 namespace UnisenderWrapper.UnisenderData
 {
     //Список рассылок
-    public class SubscribesList
+    public class MailingList
     {
         public List<Mailing> Mailings;
 
-        public SubscribesList(dynamic pairs)
+        public MailingList(dynamic pairs)
         {
             Mailings = new List<Mailing>();
             FillList(pairs);

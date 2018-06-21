@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnisenderWrapper.UnisenderData;
-using UnisenderWrapper.UnisenderData.AppData;
+using UnisenderWrapper.UnisenderData.ExtentionData;
 
 namespace UnisenderWrapper.UnisenderMethods
 {
@@ -18,7 +18,7 @@ namespace UnisenderWrapper.UnisenderMethods
             var answer = client.getLists();
             // todo check error in answer
 
-            SubscribesList mailingList = new SubscribesList(answer);
+            MailingList mailingList = new MailingList(answer);
 
             return mailingList.Mailings;
         }
@@ -104,7 +104,7 @@ namespace UnisenderWrapper.UnisenderMethods
 
             IDictionary<string, object> sendParam = new Dictionary<string, object>
             {
-                ["list_ids"] = subscribesList.ToAdresStr(),
+                ["list_ids"] = subscribesList.SeparatedComa(),
                 ["fields"]   = keyValues,
                 ["tags"] = tags,
                 ["double_optin"] = dOpt,

@@ -48,5 +48,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UnisenderWrapper\UnisenderWrapper.csproj">
+      <Project>{582fa4b3-e3fd-4938-a87f-b5cd9ab310f5}</Project>
+      <Name>UnisenderWrapper</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
