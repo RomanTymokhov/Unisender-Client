@@ -8,9 +8,9 @@ namespace UnisenderWrapper.UnisenderData.ServiceData
 {
     public class DoubleOption : IServiceStatus
     {
-        private int zero = 0;
-        private int thre = 3;
-        private int four = 4;
+        private readonly int zero = 0;
+        private readonly int thre = 3;
+        private readonly int four = 4;
 
         public static int Zero
         {

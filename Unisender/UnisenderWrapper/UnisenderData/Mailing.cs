@@ -12,11 +12,11 @@ namespace UnisenderWrapper.UnisenderData
         public int Id { get; set; }
         public string Title { get; set; }
 
-        private string beforeSubscribeUrl;
-        private string afterSubscribeUrl;
+        private readonly string beforeSubscribeUrl;
+        private readonly string afterSubscribeUrl;
 
-        private const string title = "title";
         private const string id = "id";
+        private const string title = "title";
 
         //консруктор по умолчанию
         public Mailing() { }

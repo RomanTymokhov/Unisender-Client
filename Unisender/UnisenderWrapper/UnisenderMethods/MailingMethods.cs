@@ -116,7 +116,7 @@ namespace UnisenderWrapper.UnisenderMethods
 
         public static dynamic Unsubscribe (dynamic client, string unsOption, string contactType, string contact, string listId)
         {
-            // вынес методы exclude() и unsubscribe() в один класс и с помощью unsOption выбираю тип отписки
+            // вынес функционал exclude() и unsubscribe() в один метод и с помощью unsOption выбираю тип отписки
             IDictionary<string, object> sendParam = new Dictionary<string, object>
             {
                 ["contact_type"] = contactType,
